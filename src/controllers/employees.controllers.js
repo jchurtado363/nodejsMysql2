@@ -36,9 +36,10 @@ export const getEmployee = async (req, res) => {
 //CREA UN CAMPO EN LA TABLA EN ESTE CASO UN EMPLEADO
 export const CreateEmployees = async (req, res) => {
 
-    const { name, salary } = req.body
+    
 
     try {
+        const { name, salary } = req.body
         const [rows] = await pool.query('INSERT INTO employee (name,salary) VALUES (?,?)', [name, salary])
         console.log
         res.send({
